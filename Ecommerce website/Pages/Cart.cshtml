@@ -1,0 +1,35 @@
+﻿@page
+@model Ecommerce_website.Pages.CartModel
+@{
+}
+
+
+    <form class = "items" method="post" asp-page="cart" asp-page-handler="update">
+        <h1 class = "itemheader">Item</h1>
+        <h1 class = "quantityheader">Quantity</h1>
+        <h1 class = "priceheader">Price</h1>
+     @foreach (var item in Model.cart){
+                    <section class="rows">
+                          
+                     <img class = "cart-item-image" src="@item.Product.ProductImage"  />
+                     <h1 >@item.Product.Name</h1> 
+                     <a>
+                    <input class= "cart-quantity-input "type="number" name="quantities" value="@item.Quantity" min="1" style="width: 50px;" /></a>
+                    <p class = "price" >£@(item.Product.Price * item.Quantity)</p>
+                    <a class="btn btn-danger deletebtn"  asp-page = "cart" asp-route-id="@item.Product.Id" asp-page-handler = "Delete" >Delete</a>
+     </section>
+     
+     }
+     
+           
+      <input class = "btn btn-danger update" type="submit" value="Update" />
+
+</form>
+<section class="cart-total">
+                <p class="cart-total-title">Total: </p>
+                <span class="cart-total-price">£@(
+                    
+                    
+                    Model.Total)</span>
+                    
+            </section>

@@ -1,0 +1,32 @@
+﻿@page
+@model Ecommerce_website.Pages.FormModel
+@{
+}
+
+<form method="post"  class="form" asp-page="Form">
+     <h1>Add product information</h1>
+    <div class = "forms">
+  <label  class = "label" asp-for= "@Model.Products.Id" ></label>
+<input type="text" asp-for="@Model.Products.Id"  class = "input" readonly/>
+</div>
+<div class = "forms">
+<label  class = "label" asp-for="@Model.Products.Name" ></label>
+<input class = "input" type="text" asp-for="@Model.Products.Name" />
+</div>
+<div class = "forms">
+<label  class = "label" asp-for="@Model.Products.Description" ></label>
+<input  class = "input" type="text" asp-for="@Model.Products.Description" />
+
+</div>
+<div class = "forms">
+<label  class = "label" asp-for="@Model.Products.Price" ></label>
+<input  class = "input" type="text" asp-for="@Model.Products.Price" />
+</div>
+<div class = "forms">
+<label  class = "label" asp-for="@Model.Products.ProductImage" ></label>
+<input  class = "input" type="text" asp-for="@Model.Products.ProductImage" />
+</div>
+<input class = "save" type="submit" value="Save" asp-page-handler = "Update" />
+</form>
+ 
+         

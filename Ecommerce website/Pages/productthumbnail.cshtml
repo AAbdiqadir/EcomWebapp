@@ -1,0 +1,30 @@
+﻿@page
+@model Ecommerce_website.Pages.productthumbnailModel
+@{
+}
+
+<section class="thumnail-content">
+            <section class="thumnail-btn" ><img class = "thumnail-img"src="@Model.Products.ProductImage" >
+           </section>
+
+<section class="infos">
+    <p class="head">@Model.Products.Name</p>
+    
+    <button class="colours blue"></button>
+    <button class = "colours black"></button>
+    <button class = "colours grey"></button>
+    <section class = "sizecloth">
+        <p>Sizes available:</p>
+    <button class = "sizes ">XS</button>
+    <button class = "sizes sizex">S</button>
+    <button class = "sizes sizex">M</button>
+    <button class = "sizes sizex">L</button>
+    <button class = "sizes sizex">XL</button>
+    </section>
+    
+        <a class = "cart1" asp-page="cart" asp-page-handler="buynow" asp-route-id="@Model.Products.Id">Buy Now</a>
+       
+    
+
+</section>
+</section>

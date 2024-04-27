@@ -1,0 +1,21 @@
+﻿@page
+@model Ecommerce_website.Pages.ManageUsersModel
+@{
+
+}
+<div class = "Users" id="products">
+    <h1 class = "header">All accounts</h1>
+    <p >Email address</p>
+    <p class = "user">Username</p>
+     @foreach  (var product in Model.Users){         
+                <div class=" allUsers ">
+                    
+                    
+                   
+                    <h1 >@product.UserName</h1>
+                    <h2 class = "name" >@product.FirstName @product.LastName</h2>
+                    <a class = "btn btn-danger deletebtn delete" asp-page = "ManageUsers" asp-route-id="@product.Id" asp-page-handler = "Delete" >Delete</a>
+                   
+                </div>
+     }
+</div>

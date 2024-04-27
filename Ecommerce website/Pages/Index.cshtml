@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="welcome">
+    <img class = "image1"src = "/image/cartoon.png"/>
+   
+    <h1 class="display">Mens clothing</h1>
+        <p > Welcome to JOES where you can find fashionable  <br>clothing for men. 
+        </p>
+        <a asp-page= "Products" class = "shopnow" >Shop now <i class="fa fa-chevron-right" ></i></a>
+    
+    
+</div>
+
+<div class = "product_  products" id="products">
+    <p class = "Feature">Featured Products</p>
+     @foreach  (var product in Model.products){         
+                <div class=" featuredcards allproducts ">
+                    <img src="@product.ProductImage"  alt="">
+                    
+                    <h1 >@product.Name</h1>
+                    <p >£@product.Price</p>
+                   
+                </div>
+     }
+</div>
+<section class= "newsletter">
+            <section class="content">
+            <section class="contents">
+                <h1>Join our newsletter</h1>
+                <p>Subscribe to our newsletter to receive the latest updates</p>
+            
+            <section class="form_S">
+                <a href=" " class="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                <input class = "e-box" type="Email" name="" value="" placeholder="Enter Email Address">
+                <button class="subscribe">Subscribe Now</button>
+            </section>
+            </section>
+            </section>
+            </section>

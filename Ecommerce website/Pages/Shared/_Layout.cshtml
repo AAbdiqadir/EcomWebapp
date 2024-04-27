@@ -1,0 +1,100 @@
+﻿@using Ecommerce_website.Models;
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<AppUser> SignInManager;
+@inject UserManager<AppUser> UserManager;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ecommerce_website</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/fon
+t-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@700&family=Libre+Baskervi
+lle&family=Licorice&family=Montserrat&family=Poppins:ital,wght@0,200;1,100&family=Work+Sans:wght@100
+&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Ecommerce_website.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/_layout.cshtml.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navs  navbar-expand-sm navbar-toggleable-sm    box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand logo" asp-area="" asp-page="Index"><img class = "image" src= "~/image/JOES_Jeans_logo_logotype.png" /> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navlinks navbar-nav flex-grow-1">
+                        <li class="nav-item ">
+                            <a class="nav-link navilinks " asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link navilinks " asp-area="" asp-page="/Products">Products</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link navilinks " asp-area="" asp-page="/aboutus">about us</a>
+                        </li>
+                        <li class="nav-item">
+                            
+                            <a class="nav-link navilinks " asp-area="" asp-page="/Cart">Cart</a>
+                            
+                            
+                        </li>
+                         @{
+                          if (SignInManager.IsSignedIn(User) ){
+                               <li class="nav-item">
+                            <a class="nav-link navilinks " asp-area="" asp-page="/Form">Add Products</a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link navilinks " asp-area="" asp-page="/ManageUsers">Users</a>
+                        </li>
+                        
+                          }}
+
+                        
+                      
+                    </ul>
+                </div>
+            </div>
+            <partial name="_LoginPartial" /> 
+        </nav>
+    </header>
+    <div class="container containers">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        
+        <ul class="socials">
+            <li ><a href=""><i class ="fa fa-facebook" ></i></a></li>
+            <li><a href=""><i class ="fa fa-instagram" ></i></a></li>
+             <li><a href=""><i class ="fa fa-twitter" ></i></a></li>
+             <li><a href=""><i class ="fa fa-google-plus" ></i></a></li>
+             <li><a href=""><i class ="fa fa-youtube" ></i></a></li>
+             <li><a href=""><i class ="fa fa-sign-in" ></i></a></li>
+             <li class="phone"> <a href=""><i class ="fa fa-phone" ></i>+44 741894194</a></li>
+                </ul>
+    <div class="container containers">
+            &copy; 2022 - JOES - <a asp-area="" asp-page="/aboutus">aboutus</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
